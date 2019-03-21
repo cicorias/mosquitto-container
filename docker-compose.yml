@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  # Eclipse Mosquitto MQTT Broker
+  mosquitto:
+    build: .
+    image: cicorias/mosquitto
+    container_name: mosquitto
+    volumes: 
+      - "/srv/modules/mosquitto/log:/mosquitto/log"
+      - "/srv/modules/mosquitto/data:/var/lib/mosquitto"
+    restart: always
+    ports:
+      - 1884:1883
